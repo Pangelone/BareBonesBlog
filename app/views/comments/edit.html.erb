@@ -1,0 +1,6 @@
+<h1>Editing Comment</h1>
+
+<%= render 'form_edit', comment: @comment %>
+
+<%= link_to 'Show', "/admin/articles/#{@comment.article_id}/comments/#{@comment.id}" %> |
+<%= link_to 'Back', "/admin/articles/#{@comment.article_id}" %>

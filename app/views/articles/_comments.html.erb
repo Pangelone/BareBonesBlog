@@ -1,0 +1,30 @@
+<br/>
+<br/>
+<h1>Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if !@comments.nil? %>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td><%= comment.email %></td>
+          <td><%= comment.body %></td>
+          <td><%= link_to 'Show', "/admin/articles/#{comment.article_id}/comments/#{comment.id}" %></td>
+          <td><%= link_to 'Destroy', "/admin/articles/#{comment.article_id}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment', "#{article.id}/comments/new" %>
